@@ -1,0 +1,32 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  # meilisearch:
+  #   image: getmeili/meilisearch:v0.25.2
+  #   ports:
+  #     - "7700:7700"
+  #   environment:
+  #     - MEILI_NO_ANALYTICS=true
+  #   volumes:
+  #     - meili:/home/meili/data.ms"
+  mysql:
+    image: mysql:latest
+    ports: 
+    - "3306:3306"
+    environment:
+      - MYSQL_DATABASE=trpcdb
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+
+# version: '3.6'
+# services:
+#   postgres:
+#     image: postgres:13
+#     ports:
+#       - '5832:5432' # expose pg on port 5832 to not collide with pg from elswhere
+#     restart: always
+#     volumes:
+#       - db_data:/var/lib/postgresql/data
+#     environment:
+#       POSTGRES_PASSWORD: ${PGPASSWORD}
+#       POSTGRES_HOST_AUTH_METHOD: trust
+# volumes:
+#   db_data:
